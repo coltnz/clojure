@@ -269,7 +269,8 @@ public static Object getInstanceField(Object target, String fieldName) {
 			}
 		}
 	throw new IllegalArgumentException("No matching field found: " + fieldName
-		+ " for " + target.getClass());
+		+ " for " + target.getClass()
+		+ (fieldName.equals("length") && c.isArray()?", use alength function for array length":""));
 }
 
 public static Object setInstanceField(Object target, String fieldName, Object val) {
